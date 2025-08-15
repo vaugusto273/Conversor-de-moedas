@@ -1,6 +1,6 @@
 # Conversor de Moedas
 
-![Conversor de Moedas Badge](badge-conversor.png)
+![Conversor de Moedas Badge](Badge-Conversor.png)
 
 Este projeto é um conversor de moedas em Java que utiliza a API [ExchangeRate-API](https://www.exchangerate-api.com/) para obter taxas de câmbio em tempo real. O usuário informa a moeda base, o valor a ser convertido e as moedas de destino, recebendo os valores convertidos em formato de tabela.
 
