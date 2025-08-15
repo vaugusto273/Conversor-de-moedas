@@ -13,10 +13,7 @@ public class ConsultaAPI {
     public static void setMoedaBase(String moeda) {
         moedaBase = moeda;
     }
-    public static String moedasDestino;
-    public static void setMoedasDestino(String moedasdeDestino) {
-        moedasDestino = moedasdeDestino;
-    }
+    public static String[] moedasDestino;
     public static void main(String[] args) throws Exception {
         Properties props = new Properties();
         try (var input = ConsultaAPI.class.getClassLoader().getResourceAsStream("config.properties")) {
@@ -32,7 +29,10 @@ public class ConsultaAPI {
         String json = response.body();
         JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
         JsonObject rates = jsonObject.getAsJsonObject("conversion_rates");
-        double currencyValue = rates.get(moedasDestino).getAsDouble();
-        System.out.println("Taxas de conversão para " + moedasDestino + ":" + currencyValue);
+        for (String moedas : moedasDestino ){
+            double currencyValue = rates.get(moedas).getAsDouble();
+            System.out.println("Taxas de conversão para " + moedas + ":" + currencyValue);
+        }
+        
     }
 }
