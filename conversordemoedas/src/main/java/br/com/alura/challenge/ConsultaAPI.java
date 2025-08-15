@@ -38,14 +38,14 @@ public class ConsultaAPI {
         String json = response.body();
         JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
         JsonObject rates = jsonObject.getAsJsonObject("conversion_rates");
-        System.out.println("\nMoeda base: " + moedaBase);
+        System.out.println("\nMoeda base: " + moedaBase.toUpperCase());
         System.out.println("---------------------------------------------");
         System.out.printf("%-10s | %-15s | %-15s\n", "Destino", "Taxa de Câmbio", "Valor Convertido");
         System.out.println("---------------------------------------------");
         for (String moeda : moedasDestino) {
-            double currencyValue = rates.get(moeda).getAsDouble();
+            double currencyValue = rates.get(moeda.toUpperCase()).getAsDouble();
             double valorConvertido = CalculaTaxadeCambio.calcular(Double.parseDouble(valorMoeda), currencyValue);
-            System.out.printf("%-10s | %-15.2f | %-15.2f\n", moeda, currencyValue, valorConvertido);
+            System.out.printf("%-10s | %-15.2f | %-15.2f\n", moeda.toUpperCase(), currencyValue, valorConvertido);
         }
         System.out.println("---------------------------------------------");
     }
