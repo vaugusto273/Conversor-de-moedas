@@ -7,6 +7,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite a moeda base (ex: USD, EUR, GBP): ");
         ConsultaAPI.moedaBase = scanner.nextLine();
+        System.out.println("Digite o valor a ser convertido: ");
+        ConsultaAPI.valorMoeda = scanner.nextLine();
         System.out.println("Digite as moedas de destino separadas por vírgula (ex: BRL,JPY,AUD): ");
         String moedasDestinoInput = scanner.nextLine();
         ConsultaAPI.moedasDestino = moedasDestinoInput.replace(" ", "").split(",");
